@@ -1,0 +1,50 @@
+table {
+    width: 100%;
+}
+
+
+td, th{
+    width: 15%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-icon{
+    margin-left: 3px;
+}
+
+.delete{
+    cursor: pointer;
+    color: #E15639;
+}
+
+.edit{
+    cursor: pointer;
+    color: #1878B0;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.btnAgg{
+    font-size: 15px;
+    line-height: 30px;
+}
+
+#btn{
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btnBack{
+    width: 100px;
+    padding: 2px;
+    display: flex;
+    justify-content: space-around;
+}
+

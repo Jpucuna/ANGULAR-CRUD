@@ -1,0 +1,29 @@
+mat-form-field {
+    width: 100%;
+    margin: 5px;
+}
+
+input{
+    color: aliceblue;
+}
+
+.mat-input-element{
+    caret-color: cornsilk;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.9;
+    filter: invert(0.9);
+}
+
+.btnAceptar{
+    margin-right: 7px;
+}
+
+.regreso{
+    padding-bottom: 7px;
+    padding-right: 5px;
+}

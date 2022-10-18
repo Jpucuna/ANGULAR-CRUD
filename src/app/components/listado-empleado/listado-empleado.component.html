@@ -1,0 +1,56 @@
+
+<div class="title">
+    <h1>Total de sueldos por zona y sector</h1>
+</div>
+
+
+<div class="container">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="Sector">
+          <th mat-header-cell *matHeaderCellDef> Sector </th>
+          <td mat-cell *matCellDef="let element"> {{element.desSector}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Zona">
+          <th mat-header-cell *matHeaderCellDef> Zona </th>
+          <td mat-cell *matCellDef="let element"> {{element.desZona}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Sueldo">
+          <th mat-header-cell *matHeaderCellDef> Sueldo </th>
+          <td mat-cell *matCellDef="let element"> $ {{element.sueldo}} </td>
+        </ng-container>
+        
+
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef> 
+              <!-- es importante agregar el / en routerLink para que redireccione y elimine el anterior /componente y no siga el esquema /component/agregarMascota -->
+              <!-- primera manera de usar routerLink -->
+              <!-- routerLink="/agregarMascota -->
+              <!-- segunda:  [routerLink]="['/agregarMascota']" -->
+              Detalles
+            </th>
+            <td mat-cell *matCellDef="let element"> 
+              <!-- para pasar un id se en routeLink se hace de la siguiente manera -->
+              <!-- 1.-  routerLink="/verMascota/1" o routerLink="/verMascota/{{parametro}}"-->
+              <!-- 2.-  [routerLink]="['/verMascota', valor del id]" -->
+              <mat-icon routerLink='/verEmpleado/{{element.codZona}}' class="search" fontIcon="search" matTooltip="Ver mas"></mat-icon>
+    
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+
+</div>
+

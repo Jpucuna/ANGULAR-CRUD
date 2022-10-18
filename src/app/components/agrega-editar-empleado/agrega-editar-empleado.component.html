@@ -1,0 +1,63 @@
+<div class="title">
+    <h1>Agregar un empleado</h1>
+</div>
+
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile [colspan]="2">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="nombre" matInput placeholder="Ingresa tu nombre" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input type="date" formControlName="fechaNacimiento" matInput autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label >Sector</mat-label>
+                    <mat-select formControlName="sector" [(ngModel)]="sec" (selectionChange)="llenarZonas()">
+                        <mat-option value="">--Selecciona--</mat-option>  
+                        <mat-option *ngFor="let sector of sectores"  value="{{sector.codSector}}">{{sector.desSector}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile [colspan]="2">
+                <label for="Country">País</label>  
+                  <select  class="form-control"  formControlName="sector"  [(ngModel)]="SelCountryId" (change)="llenarZonas();">  
+                    <option value="">--Selecciona--</option>  
+                    <option *ngFor="let sector of sectores" value={{sector.codSector}}>  
+                        {{sector.desSector}}  
+                    </option>  
+              </select>  
+
+            </mat-grid-tile> -->
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label for="Zonas">Zonas</mat-label>  
+                    <mat-select  class="form-control"  formControlName="zona">  
+                    <mat-option value="">--Selecciona--</mat-option>  
+                    <mat-option *ngFor="let zona of zonas | async" value={{zona.codZona}}>  
+                        {{zona.desZona}}  
+                    </mat-option>  
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sueldo $</mat-label>
+                    <input type="number" formControlName="sueldo" matInput autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2">
+                <button [disabled]="form.invalid" type="submit" class="btnAceptar" mat-raised-button color="primary">Aceptar</button>
+                <button  [routerLink]="['/listEmpleado']" mat-raised-button>
+                    <mat-icon class="regreso" fontIcon="home"></mat-icon>Inicio</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
